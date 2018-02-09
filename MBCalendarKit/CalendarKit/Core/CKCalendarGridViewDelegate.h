@@ -24,5 +24,6 @@
  @param date The date represented by the cell.
  */
 - (void)calendarGrid:(nonnull CKCalendarGridView *)gridView willDisplayCell:(nonnull CKCalendarCellBase *)cell forDate:(nonnull NSDate *)date;
+- (void)calendarGrid:(nonnull CKCalendarGridView *)gridView didSelectCellWithIndexpath:(nonnull NSIndexPath *)indexPath forDate:(nonnull NSDate *)date;  // richa
 
 @end
