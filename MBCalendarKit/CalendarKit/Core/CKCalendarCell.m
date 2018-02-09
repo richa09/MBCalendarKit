@@ -37,7 +37,7 @@
         _state = CKCalendarCellContextIdentifierDefault;
         
         //  Normal Cell Colors
-        _normalBackgroundColor = kCalendarColorLightGray;
+        _normalBackgroundColor = kCalendarColorWhite; //kCalendarColorLightGray;  // richa
         _selectedBackgroundColor = kCalendarColorBlue;
         _inactiveSelectedBackgroundColor = kCalendarColorDarkGray;
         
