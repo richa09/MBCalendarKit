@@ -13,7 +13,7 @@
 #import "CKCalendarDelegate.h"
 #import "CKCalendarDataSource.h"
 #import "CKCustomCellProviding.h"
-
+@class CKCalendarModel;  // richa
 
 NS_SWIFT_NAME(CalendarView)
 IB_DESIGNABLE @interface CKCalendarView : UIView
@@ -238,5 +238,15 @@ IB_DESIGNABLE @interface CKCalendarView : UIView
  The default value is `NO`, to remain consistent with the legacy iPhone calendar.
  */
 @property (nonatomic, assign) BOOL animatesWeekTransitions;
+
+/**
+ A private accessor for the calendar model.
+ 
+ @return The calendar model.
+ */
+@property (nonatomic, strong) CKCalendarModel * _Nonnull calendarModel;  // richa
+
+- (void)forwardButtonTapped;// richa
+- (void)backwardTapped;// richa
 
 @end
