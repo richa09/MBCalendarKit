@@ -92,4 +92,11 @@
  */
 - (void)reloadData;
 
+// richa
+/**
+ Bollean for setting month and day labels hide or show.
+*/
+@property (nonatomic, readwrite) BOOL showMonthNameTitle;
+@property (nonatomic, readwrite) BOOL showDayNameTitle;
+
 @end
