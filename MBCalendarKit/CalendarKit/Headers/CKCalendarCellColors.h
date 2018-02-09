@@ -40,6 +40,8 @@
 #define kCalendarColorLightTextGradient [UIColor colorWithRed:0.29 green:0.35 blue:0.43 alpha:1.0]
 
 #define kCalendarColorCellBorder [UIColor colorWithRed:0.62 green:0.63 blue:0.66 alpha:1.0]
-#define kCalendarColorSelectedCellBorder [UIColor colorWithRed:0.16 green:0.21 blue:0.29 alpha:1.0]
+#define kCalendarColorSelectedCellBorder [UIColor colorWithRed:0.16 green:0.21 blue:0.29 alpha:1.0
+#define kCalendarColorWhite [UIColor colorWithRed:1 green:1 blue:1 alpha:1.0]  // richa
+
 
 #endif
