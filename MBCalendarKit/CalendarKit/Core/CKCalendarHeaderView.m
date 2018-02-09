@@ -461,11 +461,11 @@
     }
     
     if ([self shouldDisableForwardButton]) {
-        (self.forwardButton).alpha = 0.5;
+        (self.forwardButton).alpha = 0.0; //0.5;   // richa
     }
     
     if ([self shouldDisableBackwardButton]) {
-        (self.backwardButton).alpha = 0.5;
+        (self.backwardButton).alpha = 0.0; //0.5;  // richa
     }
 }
 
