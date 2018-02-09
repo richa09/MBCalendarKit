@@ -49,6 +49,10 @@ NS_SWIFT_NAME(CustomCellProviding)
  */
 - (void)calendarView:(nonnull CKCalendarView *)calendarView willDisplayCell:(nonnull UICollectionViewCell *)cell inContext:(nonnull CKCalendarCellContext *)context;
 
+
+- (void)calendarView:(nonnull CKCalendarView *)calendarView didSelectItem:(nonnull UICollectionViewCell *)cell atIndexPath:(nonnull NSIndexPath *)indexPath forDate:(nonnull NSDate *)date;  // richa
+
+
 @end
 
 #endif /* CKCustomCellProviding_h */
