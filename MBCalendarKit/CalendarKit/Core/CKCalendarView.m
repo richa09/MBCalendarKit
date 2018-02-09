@@ -64,7 +64,7 @@
 /**
  *  A model, encapsulating the state of a calendar.
  */
-@property (nonatomic, strong, nonnull) CKCalendarModel *calendarModel;
+//@property (nonatomic, strong, nonnull) CKCalendarModel *calendarModel;  // richa
 
 // MARK: - Caching Highlight State for Scrubbing
 
@@ -144,7 +144,7 @@
 {
     _calendarModel = [[CKCalendarModel alloc] init];
     _headerView = [CKCalendarHeaderView new];
-    
+    _headerView.hidden = true; // richa
     CKCalendarGridTransitionCollectionViewFlowLayout *layout = [[CKCalendarGridTransitionCollectionViewFlowLayout alloc] init];
     _layout = layout;
     
@@ -292,7 +292,9 @@
         [self highlightCellBeneathTouches:touches];
         NSDate *dateFromTouches = [self dateFromTouches:touches];
         
-        self.calendarModel.date = dateFromTouches;
+        if (dateFromTouches != nil) {  // richa
+            self.calendarModel.date = dateFromTouches;
+        }
     }
     else
     {
@@ -384,8 +386,11 @@
     UITouch *touch = touches.anyObject;
     CGPoint locationInView = [touch locationInView:self.gridView];
     NSIndexPath *indexPath = [self.gridView indexPathForItemAtPoint:locationInView];
-    NSDate *date = [self.calendarModel dateForIndexPath:indexPath];
     
+    if (indexPath == nil) {  // richa
+        return nil;
+    }
+    NSDate *date = [self.calendarModel dateForIndexPath:indexPath];
     return date;
 }
 
@@ -409,8 +414,8 @@
 {
     self.gridView.gridDataSource = self.calendarModel;
     self.gridView.gridAppearanceDelegate = self;
-    self.gridView.backgroundColor = kCalendarColorLightGray;
-    
+    self.gridView.backgroundColor = kCalendarColorWhite;  // kCalendarColorLightGray;  // richa  090218
+
     if(![self.subviews containsObject:self.gridView])
     {
         self.gridView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -670,7 +675,7 @@
 /**
  This implementation ensures that the cell that we're about to display has the appropriate selection, and then call the custom cell provider if one exists.
  */
-- (void)calendarGrid:(CKCalendarGridView *)gridView willDisplayCell:(UICollectionViewCell *)cell forDate:(NSDate *)date
+- (void)calendarGrid:(CKCalendarGridView *)gridView willDisplayCell:(UICollectionViewCell *)cell forDate:(NSDate *)date atIndexpath:(nonnull NSIndexPath *)indexPath
 {
     CKCalendarCellContext *calendarContext = [[CKCalendarCellContext alloc] initWithDate:date andCalendarView:self];
     
@@ -678,6 +683,7 @@
     {
         self.mostRecentlyHighlightedCell = cell;
         cell.selected = YES;
+        [self.customCellProvider calendarView:self didSelectItem:cell atIndexPath:indexPath forDate:date];  // richa
     }
     else
     {
@@ -888,6 +894,16 @@
         NSLog(@"(%@) : Your implementation of CKCustomCellProviding doesn't register a custom cell. You will receive the default CKCalendarCell in your implementation of calendarView:willDisplayCell:forDate:withContext:", self.description);
     }
     [self reload];
+}
+
+- (void)forwardButtonTapped{
+    self.calendarModel.animatesWeekTransitions = true;
+    [self.calendarModel forwardTapped];
+}
+
+- (void)backwardTapped{
+    self.calendarModel.animatesWeekTransitions = true;
+    [self.calendarModel backwardTapped];
 }
 
 @end
