@@ -94,10 +94,18 @@
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self.gridAppearanceDelegate respondsToSelector:@selector(calendarGrid:willDisplayCell:forDate:)])
+    if ([self.gridAppearanceDelegate respondsToSelector:@selector(calendarGrid:willDisplayCell:forDate:atIndexpath:)])
     {
         NSDate *date = [self.gridDataSource dateForIndexPath:indexPath];
-        [self.gridAppearanceDelegate calendarGrid:self willDisplayCell:(id)cell forDate:date];
+        [self.gridAppearanceDelegate calendarGrid:self willDisplayCell:(id)cell forDate:date atIndexpath:indexPath];
+    }
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if ([self.gridAppearanceDelegate respondsToSelector:@selector(calendarGrid:didSelectCellWithIndexpath:forDate:)])
+    {
+        NSDate *date = [self.gridDataSource dateForIndexPath:indexPath];
+        [self.gridAppearanceDelegate calendarGrid:self didSelectCellWithIndexpath:indexPath forDate:date];
     }
 }
 
