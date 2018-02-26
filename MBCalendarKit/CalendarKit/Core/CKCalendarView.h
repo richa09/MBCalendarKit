@@ -239,6 +239,8 @@ IB_DESIGNABLE @interface CKCalendarView : UIView
  */
 @property (nonatomic, assign) BOOL animatesWeekTransitions;
 
+@property(nonatomic, assign) BOOL showWeekDaysHeader;
+
 /**
  A private accessor for the calendar model.
  
