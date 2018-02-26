@@ -144,7 +144,7 @@
 {
     _calendarModel = [[CKCalendarModel alloc] init];
     _headerView = [CKCalendarHeaderView new];
-    _headerView.hidden = true; // richa
+    _headerView.hidden = !self.showWeekDaysHeader // richa
     CKCalendarGridTransitionCollectionViewFlowLayout *layout = [[CKCalendarGridTransitionCollectionViewFlowLayout alloc] init];
     _layout = layout;
     
