@@ -66,7 +66,7 @@
                                                              ].pointSize];
         _headerMonthTextColor = kCalendarColorHeaderMonth;
         _headerMonthTextShadow = kCalendarColorHeaderMonthShadow;
-        _headerWeekdayTitleFont = [UIFont boldSystemFontOfSize:[UIFont preferredFontForTextStyle:UIFontTextStyleCaption1].pointSize];
+        _headerWeekdayTitleFont = [UIFont fontWithName:@"OpenSans" size:17.0];  //[UIFont boldSystemFontOfSize:[UIFont preferredFontForTextStyle:UIFontTextStyleCaption1].pointSize];  // richa
         _headerWeekdayTitleColor = kCalendarColorHeaderWeekdayTitle;
         _headerWeekdayShadowColor = kCalendarColorHeaderWeekdayShadow;
         _headerGradient = kCalendarColorHeaderGradientDark;
@@ -88,7 +88,7 @@
         [self addGestureRecognizer:_tapGesture];
         
         [self _installTitleLabel];
-        [self _installBackwardAndForwardButtons];
+//         [self _installBackwardAndForwardButtons];  // richa
     }
     return self;
 }
@@ -98,7 +98,7 @@
 - (void)willMoveToSuperview:(UIView *)newSuperview
 {
     [super willMoveToSuperview:newSuperview];
-    self.backgroundColor = self.headerGradient;
+    self.backgroundColor = [UIColor clearColor]; // self.headerGradient;  richa
     [self reloadData];
 }
 
@@ -227,7 +227,11 @@
     for(NSInteger i = 0; i<self.columnTitles.count; i++)
     {
         UILabel *label = self.columnLabels[i];
-        label.text = self.columnTitles[i];
+         if (self.columnTitles[i].length > 0) {  // richa
+            label.text = [self.columnTitles[i] substringToIndex:1];
+        }else{
+            label.text = self.columnTitles[i];
+        }
     }
 }
 
