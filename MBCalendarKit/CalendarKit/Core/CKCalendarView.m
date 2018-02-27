@@ -42,7 +42,7 @@
 /**
  The header view which shows the month and weekday names.
  */
-@property (nonatomic, strong) CKCalendarHeaderView *headerView;
+// @property (nonatomic, strong) CKCalendarHeaderView *headerView;  // richa
 
 /**
  A collection view to drive the display of the calendar.
@@ -894,6 +894,11 @@
         NSLog(@"(%@) : Your implementation of CKCustomCellProviding doesn't register a custom cell. You will receive the default CKCalendarCell in your implementation of calendarView:willDisplayCell:forDate:withContext:", self.description);
     }
     [self reload];
+}
+
+- (void)jumpToMonth : (NSInteger) month forYear : (NSInteger) year{ // richa
+    self.calendarModel.animatesWeekTransitions = true;
+    [self.calendarModel jumpToMonth:month forYear:year];
 }
 
 - (void)forwardButtonTapped{
