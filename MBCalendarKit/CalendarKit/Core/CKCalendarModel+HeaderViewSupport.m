@@ -143,6 +143,53 @@
 
 // MARK: - CKCalendarHeaderViewDelegate
 
+// directly select a month and show calender for that month.  // richa
+- (void)jumpToMonth : (NSInteger) month forYear : (NSInteger) year{
+    NSDate *date = self.date;
+    NSDate *today = [NSDate date];
+    
+    if (self.displayMode == CKCalendarViewDisplayModeMonth) {
+        
+        NSUInteger maxDays = [self.calendar daysPerMonthUsingReferenceDate:date];
+        NSUInteger todayInMonth = [self.calendar daysInDate:date];
+        
+        //  If we're the last day of the month, just roll over a day
+        if (maxDays == todayInMonth) {
+            date = [self.calendar dateByAddingDays:1 toDate:date];
+        }
+        
+        //  Otherwise, add a month and then go to the first of the month
+        else{
+            NSDateComponents *dateComponents = [self.calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:[NSDate date]];
+            [dateComponents setDay:1];
+            [dateComponents setMonth:month];
+            [dateComponents setYear:year];
+            date = [self.calendar dateFromComponents:dateComponents];
+            
+            
+//             NSInteger monthCurrent = [self.calendar monthsInDate:date];
+//             if (monthCurrent > month) {  // if any previous month selected.
+//                 date = [self.calendar dateBySubtractingMonths:(monthCurrent - month) fromDate:date];              //  substract a month
+//             } else {
+//                 date = [self.calendar dateByAddingMonths:(monthCurrent - month) toDate:date];              //  Add a month
+//             }
+            
+            NSUInteger day = [self.calendar daysInDate:date];                     //  Only then go to the first of the next month.
+            date = [self.calendar dateBySubtractingDays:day-1 fromDate:date];
+        }
+        
+        //  If today is in the visible month, jump to today
+        
+        if([self.calendar isDate:date equalToDate:[NSDate date] toUnitGranularity:NSCalendarUnitMonth])
+        {
+            NSUInteger distance = [self.calendar daysFromDate:date toDate:today];
+            date = [self.calendar dateByAddingDays:distance toDate:date];
+        }
+    }
+    
+    self.date = date;
+}
+
 - (void)forwardTapped
 {
     NSDate *date = self.date;
