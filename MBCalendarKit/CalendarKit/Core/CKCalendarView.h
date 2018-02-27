@@ -14,6 +14,7 @@
 #import "CKCalendarDataSource.h"
 #import "CKCustomCellProviding.h"
 @class CKCalendarModel;  // richa
+@class CKCalendarHeaderView; // richa
 
 NS_SWIFT_NAME(CalendarView)
 IB_DESIGNABLE @interface CKCalendarView : UIView
