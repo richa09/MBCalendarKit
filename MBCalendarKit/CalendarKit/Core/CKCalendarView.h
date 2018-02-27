@@ -248,6 +248,12 @@ IB_DESIGNABLE @interface CKCalendarView : UIView
  */
 @property (nonatomic, strong) CKCalendarModel * _Nonnull calendarModel;  // richa
 
+/**
+ The header view which shows the month and weekday names.
+ */
+@property (nonatomic, strong) CKCalendarHeaderView *headerView;   // richa
+
+- (void)jumpToMonth : (NSInteger) month forYear : (NSInteger) year;  // richa
 - (void)forwardButtonTapped;// richa
 - (void)backwardTapped;// richa
 
