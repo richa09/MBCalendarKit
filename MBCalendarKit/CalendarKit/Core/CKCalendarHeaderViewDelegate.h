@@ -24,6 +24,10 @@
  */
 - (void)backwardTapped;
 
+/**
+Called when user wants to jump to calender with specific month and year.
+*/ 
+- (void)jumpToMonth : (NSInteger) month forYear : (NSInteger) year;  // richa
 @end
 
 #endif /* CKCalendarHeaderViewDelegate_h */
