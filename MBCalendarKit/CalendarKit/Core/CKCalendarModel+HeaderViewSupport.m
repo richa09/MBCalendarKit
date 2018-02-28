@@ -150,16 +150,16 @@
     
     if (self.displayMode == CKCalendarViewDisplayModeMonth) {
         
-        NSUInteger maxDays = [self.calendar daysPerMonthUsingReferenceDate:date];
-        NSUInteger todayInMonth = [self.calendar daysInDate:date];
+//         NSUInteger maxDays = [self.calendar daysPerMonthUsingReferenceDate:date];
+//         NSUInteger todayInMonth = [self.calendar daysInDate:date];
         
         //  If we're the last day of the month, just roll over a day
-        if (maxDays == todayInMonth) {
-            date = [self.calendar dateByAddingDays:1 toDate:date];
-        }
+//         if (maxDays == todayInMonth) {
+//             date = [self.calendar dateByAddingDays:1 toDate:date];
+//         }
         
         //  Otherwise, add a month and then go to the first of the month
-        else{
+//         else{
             NSDateComponents *dateComponents = [self.calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:[NSDate date]];
             [dateComponents setDay:1];
             [dateComponents setMonth:month];
@@ -176,7 +176,7 @@
             
             NSUInteger day = [self.calendar daysInDate:date];                     //  Only then go to the first of the next month.
             date = [self.calendar dateBySubtractingDays:day-1 fromDate:date];
-        }
+//         }
         
         //  If today is in the visible month, jump to today
         
