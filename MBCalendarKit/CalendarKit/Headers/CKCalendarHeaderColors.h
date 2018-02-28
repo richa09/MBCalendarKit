@@ -9,7 +9,7 @@
 #ifndef MBCalendarKit_CKCalendarHeaderColors_h
 #define MBCalendarKit_CKCalendarHeaderColors_h
 
-#define kCalendarColorHeaderWeekdayTitle    [UIColor colorWithRed:0.33 green:0.33 blue:0.33 alpha:1.0]
+#define kCalendarColorHeaderWeekdayTitle    [UIColor blackColor] // [UIColor colorWithRed:0.33 green:0.33 blue:0.33 alpha:1.0]
 #define kCalendarColorHeaderWeekdayShadow   [UIColor colorWithRed:0.95 green:0.95 blue:0.96 alpha:1.0]
 
 #define kCalendarColorHeaderMonth           [UIColor colorWithRed:0.33 green:0.33 blue:0.33 alpha:1.0]
