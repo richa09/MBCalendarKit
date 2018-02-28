@@ -79,7 +79,8 @@
         _titleLabel.backgroundColor = [UIColor clearColor];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.font = _headerMonthTextFont;
-        
+        _titleLabel.hidden = !self.showMonthNameTitle;
+
         _columnTitles = [[NSMutableArray alloc] init];
         _columnLabels = [[NSMutableArray alloc] init];
         
