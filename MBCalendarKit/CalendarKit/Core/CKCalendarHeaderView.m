@@ -66,7 +66,7 @@
                                                              ].pointSize];
         _headerMonthTextColor = kCalendarColorHeaderMonth;
         _headerMonthTextShadow = kCalendarColorHeaderMonthShadow;
-        _headerWeekdayTitleFont = [UIFont fontWithName:@"OpenSans" size:17.0];  //[UIFont boldSystemFontOfSize:[UIFont preferredFontForTextStyle:UIFontTextStyleCaption1].pointSize];  // richa
+        _headerWeekdayTitleFont = [UIFont fontWithName:@"OpenSans-Semibold" size:18.0];  //[UIFont boldSystemFontOfSize:[UIFont preferredFontForTextStyle:UIFontTextStyleCaption1].pointSize];  // richa
         _headerWeekdayTitleColor = kCalendarColorHeaderWeekdayTitle;
         _headerWeekdayShadowColor = kCalendarColorHeaderWeekdayShadow;
         _headerGradient = kCalendarColorHeaderGradientDark;
