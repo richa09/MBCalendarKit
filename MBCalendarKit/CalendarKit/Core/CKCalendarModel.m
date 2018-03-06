@@ -98,10 +98,10 @@
         date = [NSDate date];
     }
     
-    if (date.timeIntervalSinceReferenceDate == _date.timeIntervalSinceReferenceDate)
-    {
-        return;
-    }
+//     if (date.timeIntervalSinceReferenceDate == _date.timeIntervalSinceReferenceDate)
+//     {
+//         return;
+//     }
     
     NSDateComponents *components = [self.calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:date];
     date = [self.calendar dateFromComponents:components];
@@ -119,10 +119,10 @@
         }
     }
     
-    if ([self.calendar isDate:date inSameDayAsDate:_date])
-    {
-        return;
-    }
+//     if ([self.calendar isDate:date inSameDayAsDate:_date])
+//     {
+//         return;
+//     }
     
     if ([self.observer respondsToSelector:@selector(calendarModel:willChangeFromDate:toNewDate:)])
     {
