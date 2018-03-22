@@ -215,6 +215,8 @@
         [self.columnLabels addObject:label];
         [self _constrainLabel:label toPrevious:previous];
         
+        [label setHidden:!self.showDayNameTitle];  // 220318
+
         previous = label;
     }
 }
@@ -394,6 +396,8 @@
  */
 - (void)_updateTitleLabelDisplay
 {
+       _titleLabel.hidden = !self.showMonthNameTitle;  // 220318
+
     [self _updateTitleLabelText];
     [self _updateTitleLabelHighlighting];
     [self _adjustMonthLabelForColumnTitles];
