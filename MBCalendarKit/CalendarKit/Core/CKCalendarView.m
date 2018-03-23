@@ -169,6 +169,20 @@
     
 }
 
+// 230318
+-(void)setShowWeekDaysHeader:(BOOL)showWeekDaysHeader{
+    if (!showWeekDaysHeader) {
+        NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.headerView
+                                                                  attribute:NSLayoutAttributeHeight
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:nil
+                                                                  attribute:0
+                                                                 multiplier:1.0
+                                                                   constant:0.0];
+        [NSLayoutConstraint activateConstraints:@[height]];
+    }
+}
+
 // MARK: - View Lifecycle
 
 - (void)didMoveToWindow
