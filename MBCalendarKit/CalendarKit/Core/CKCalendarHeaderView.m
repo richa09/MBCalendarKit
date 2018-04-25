@@ -396,8 +396,12 @@
  */
 - (void)_updateTitleLabelDisplay
 {
-       _titleLabel.hidden = !self.showMonthNameTitle;  // 220318
-
+     _titleLabel.hidden = !self.showMonthNameTitle;  // 220318
+    if (self.showDayNameTitle) {  // 250418
+        for (UILabel* label in self.columnLabels) {
+            label.hidden = NO;
+        }
+    }
     [self _updateTitleLabelText];
     [self _updateTitleLabelHighlighting];
     [self _adjustMonthLabelForColumnTitles];
